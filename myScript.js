@@ -1,9 +1,5 @@
 const container = document.getElementById('container');
-
-
-
-
-
+let hovers;
 
 function gridSize (lineNum,perLineNum){
     let currentLine=1;
@@ -25,4 +21,10 @@ function gridSize (lineNum,perLineNum){
         }
         currentPerLine=1;
     }
+    hovers = document.querySelectorAll('.perLine');
+    hovers.forEach(div => {
+        div.addEventListener('mouseenter', () => {
+            event.target.classList.add('permaHover');
+        })
+    });
 }

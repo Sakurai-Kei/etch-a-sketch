@@ -19,3 +19,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.perLine:hover {
+    background-color: black;
+}
+
+.perLine.permaHover {
+    background-color: black;
+}
