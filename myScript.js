@@ -1,7 +1,7 @@
 const container = document.getElementById('container');
 let hovers;
 let buttonSelection;
-let size;
+let size=0;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -13,18 +13,20 @@ buttons.forEach((button) => {
 
 function userInput(buttonSelection) {
     if(buttonSelection == 'size'){
+        resetGridArea(parseInt(size));
         size = prompt('Input Sketch Size. Please enter only one number up to 64');
         if(parseInt(size) > 64){
             alert('Input too large. A maximum value of 64 is allowed')
         }
-
         else if(parseInt(size) >= 1){
             gridSize(size,size);
         }
-
         else{
             alert('You have non integer value. Please re-enter valid value')
         }
+    }
+    else if(buttonSelection == 'reset'){
+        resetGridArea(parseInt(size));
     }
 }
 
@@ -58,4 +60,17 @@ function divEventListener(){
             event.target.classList.add('permaHover');
         })
     });
+}
+
+function resetGridArea(lineNum){
+    let currentLine = 1;
+    for(;currentLine <= lineNum; currentLine++){
+        const lineRemove = document.querySelector('.line');
+        if(lineRemove == null){
+            return;
+        }
+        else{
+        lineRemove.remove();
+        }
+    }
 }
