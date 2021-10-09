@@ -1,29 +1,50 @@
 body {
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
 }
 
 .line {
     display: flex;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
+    color: white;
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
 }
 
 .perLine {
     display: flex;
-    border: 2px solid blue;
+    /*border: 2px solid blue;*/
+    color: white;
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
 }
 
 #container {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: auto;
+    width: auto;
+    /*border: 10px solid black;*/
+    flex: 1 2 ;
+    min-height: 0;
+    min-width: 0;
 }
 
-.perLine:hover {
-    background-color: black;
+#sketchArea {
+    display: flex;
+    background-color: white;
+    border: 2px inset grey;
+    height: 500px;
+    width: 500px;
 }
 
 .perLine.permaHover {
     background-color: black;
+    color: black;
 }
