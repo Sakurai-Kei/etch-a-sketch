@@ -2,6 +2,7 @@ const container = document.getElementById('container');
 let hovers;
 let buttonSelection;
 let size=0;
+let eraseBox;
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -28,6 +29,12 @@ function userInput(buttonSelection) {
     else if(buttonSelection == 'reset'){
         resetGridArea(parseInt(size));
     }
+    else if(buttonSelection == 'erase'){
+        erase();
+    }
+    else if(buttonSelection == 'black'){
+        black();
+    }
 }
 
 function gridSize (lineNum,perLineNum){
@@ -50,10 +57,10 @@ function gridSize (lineNum,perLineNum){
         }
         currentPerLine = 1;
     }
-   divEventListener();
+   black();
 }
 
-function divEventListener(){
+function black(){
     hovers = document.querySelectorAll('.perLine');
     hovers.forEach(div => {
         div.addEventListener('mouseenter', () => {
@@ -73,4 +80,13 @@ function resetGridArea(lineNum){
         lineRemove.remove();
         }
     }
+}
+
+function erase(){
+    eraseBox = document.querySelectorAll('.perLine');
+    eraseBox.forEach(div => {
+        div.addEventListener('mouseenter', () => {
+            event.target.classList.remove('permaHover');
+        });
+    });
 }
